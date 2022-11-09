@@ -22,26 +22,26 @@ if (is_file($img)) {
     if (isset($thongbao) && ($thongbao != "")) echo $thongbao;
     ?>
     <div class="row formcontent" style="width:1650px;">
-        <form action="index.php?act=updatesp" method="post" enctype="multipart/form-data">
+        <form action="index.php?act=updatep" method="post" enctype="multipart/form-data">
             <div class="row">
                 <div class="row mb10 content1">
                     <div class="row mb10">
                         <label for="">MÃ PHÒNG</label><br>
-                        <input type="maphong" placeholder="auto number" style="width:120%;" value="<?= $id_phong ?>" name="iddm" disabled>
+                        <input type="text" placeholder="auto number" style="width:120%;" value="<?= $id_phong ?>" name="iddm" disabled>
                     </div>
                     <div class="row mb10">
                         <label for="">TÊN PHÒNG</label><br>
-                        <input type="tenphong" name="tenphong" style="width:120%;" value="<?= $name_phong ?>">
+                        <input type="text" name="tenphong" style="width:120%;" value="<?= $name_phong ?>">
                     </div>
                 </div>
                 <div class="row mb10 content2">
                     <div class="row mb10">
                         <label for="">ĐƠN GIÁ</label><br>
-                        <input type="gia" name="gia" style="width:120%;" value="<?= $price ?>">
+                        <input type="text" name="gia" style="width:120%;" value="<?= $price ?>">
                     </div>
                     <div class="row mb10">
                         <label for="">GIÁ SALE</label><br>
-                        <input type="giasale" placeholder="auto" name="giasale" style="width:120%;" value="<?= $price_sale ?>" disabled>
+                        <input type="text" name="giasale" style="width:120%;" value="<?= $price_sale ?>">
                     </div>
                 </div>
                 <div class="row mb10 content3">
@@ -55,7 +55,6 @@ if (is_file($img)) {
                                 else $s = "";
                                 echo '<option value="' . $id_loaiphong . '" ' . $s . '>' . $name_loaiphong . '</option>';
                             }
-
                             ?>
                         </select>
                     </div>
@@ -64,15 +63,6 @@ if (is_file($img)) {
                         <input type="file" name="img" style="margin-bottom:5px;">
                         <?= $img ?>
                     </div>
-                    <div class="row mb10">
-                        <label for="">TÌNH TRẠNG</label><br>
-                        <input type="text" name="tinhtrang" style="width:120%;" disabled>
-                    </div>
-                    <div class="row mb10">
-                        <label for="">SỐ KHÁCH</label><br>
-                        <input type="text" name="sokhach" style="width:120%;" disabled>
-                    </div>
-                    <input type="hidden" placeholder="auto" name="idloaiphong" style="width:120%;" disabled>
                 </div>
             </div>
             <div class="row mb10">
