@@ -1,7 +1,7 @@
 <?php
-if (is_array($sanpham)) {
-    extract($sanpham);
-    $prd_id = $id;
+if (is_array($phong)) {
+    extract($phong);
+    $prd_id = $id_phong;
     // var_dump($prd_id);die;
 }
 $img = "../upload/" . $img;
@@ -16,7 +16,7 @@ if (is_file($img)) {
         <h1 style="padding: 15px 0;">ADMIN </h1>
     </div>
     <div class="row mb10 formtittle" style="width:1050px;">
-        <h3>CẬP NHẬT SẢN PHẨM</h3>
+        <h3>CẬP NHẬT PHÒNG</h3>
     </div>
     <?php
     if (isset($thongbao) && ($thongbao != "")) echo $thongbao;
@@ -26,34 +26,34 @@ if (is_file($img)) {
             <div class="row">
                 <div class="row mb10 content1">
                     <div class="row mb10">
-                        <label for="">MÃ LOẠI HÀNG</label><br>
-                        <input type="text" placeholder="auto number" style="width:120%;" value="<?= $iddm ?>" name="iddm" disabled>
+                        <label for="">MÃ PHÒNG</label><br>
+                        <input type="maphong" placeholder="auto number" style="width:120%;" value="<?= $id_phong ?>" name="iddm" disabled>
                     </div>
                     <div class="row mb10">
-                        <label for="">TÊN HÀNG HÓA</label><br>
-                        <input type="text" name="tensp" style="width:120%;" value="<?= $product_name ?>">
+                        <label for="">TÊN PHÒNG</label><br>
+                        <input type="tenphong" name="tenphong" style="width:120%;" value="<?= $name_phong ?>">
                     </div>
                 </div>
                 <div class="row mb10 content2">
                     <div class="row mb10">
                         <label for="">ĐƠN GIÁ</label><br>
-                        <input type="text" name="price" style="width:120%;" value="<?= $price ?>">
+                        <input type="gia" name="gia" style="width:120%;" value="<?= $price ?>">
                     </div>
                     <div class="row mb10">
-                        <label for="">SỐ LƯỢT XEM</label><br>
-                        <input type="text" placeholder="auto" name="luotxem" style="width:120%;" value="<?= $luotxem ?>" disabled>
+                        <label for="">GIÁ SALE</label><br>
+                        <input type="giasale" placeholder="auto" name="giasale" style="width:120%;" value="<?= $price_sale ?>" disabled>
                     </div>
                 </div>
                 <div class="row mb10 content3">
                     <div class="row mb10">
-                        <label for="">LOẠI HÀNG</label><br>
-                        <select name="iddm" id="">
+                        <label for="">LOẠI PHÒNG</label><br>
+                        <select name="idlp" id="">
                             <?php
-                            foreach ($listdm as $danhmuc) {
-                                extract($danhmuc);
-                                if ($iddm == $id) $s = "selected";
+                            foreach ($listlp as $loaiphong) {
+                                extract($loaiphong);
+                                if ($idlp == $id) $s = "selected";
                                 else $s = "";
-                                echo '<option value="' . $id . '" ' . $s . '>' . $name . '</option>';
+                                echo '<option value="' . $id_loaiphong . '" ' . $s . '>' . $name_loaiphong . '</option>';
                             }
 
                             ?>
@@ -64,6 +64,15 @@ if (is_file($img)) {
                         <input type="file" name="img" style="margin-bottom:5px;">
                         <?= $img ?>
                     </div>
+                    <div class="row mb10">
+                        <label for="">TÌNH TRẠNG</label><br>
+                        <input type="text" name="tinhtrang" style="width:120%;" disabled>
+                    </div>
+                    <div class="row mb10">
+                        <label for="">SỐ KHÁCH</label><br>
+                        <input type="text" name="sokhach" style="width:120%;" disabled>
+                    </div>
+                    <input type="hidden" placeholder="auto" name="idloaiphong" style="width:120%;" disabled>
                 </div>
             </div>
             <div class="row mb10">
@@ -74,7 +83,7 @@ if (is_file($img)) {
                 <input type="hidden" value="<?= $prd_id ?>" name="id">
                 <input type="submit" name="capnhat" value="CẬP NHẬT">
                 <input type="reset" name="nhaplai" value="NHẬP LẠI">
-                <a href="index.php?act=listsp"><input type="button" value="DANH SÁCH"></a>
+                <a href="index.php?act=listp"><input type="button" value="DANH SÁCH"></a>
             </div>
         </form>
     </div>

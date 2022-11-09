@@ -1,106 +1,63 @@
 <?php
 include "../model/pdo.php";
-include "../model/loaihang.php";
-include "../model/hanghoa.php";
+include "../model/loaiphong.php";
+include "../model/phong.php";
 include "../model/taikhoan.php";
 include "../model/binhluan.php";
-include "../model/giohang.php";
+include "../model/giophong.php";
 include "header.php";
 // controller
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
     switch ($act) {
-        case 'adddm':
+        case 'addlp':
             if (isset($_POST['themmoi']) && ($_POST['themmoi'])) {
                 $tenloai = $_POST['tenloai'];
-                insert_loaihang($tenloai);
+                insert_loaiphong($tenloai);
                 $thongbao = "Thêm mới thành công!";
             }
 
-            include "loaihang/add.php";
+            include "loaiphong/add.php";
             break;
-        case 'listdm':
-            $listdm = loadall_loaihang();
-            include "loaihang/list.php";
+        case 'listlp':
+            $listlp = loadall_loaiphong();
+            include "loaiphong/list.php";
             break;
-        case 'xoadm':
+        case 'xoalp':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                delete_loaihang($_GET['id']);
+                delete_loaiphong($_GET['id']);
             }
-            $listdm = loadall_loaihang();
-            include "loaihang/list.php";
+            $listlp = loadall_loaiphong();
+            include "loaiphong/list.php";
             break;
-        case 'suadm':
+        case 'sualp':
             if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                $dm = loadone_loaihang($_GET['id']);
+                $lp = loadone_loaiphong($_GET['id']);
             }
-            include "loaihang/update.php";
+            include "loaiphong/update.php";
             break;
-        case 'updatedm':
+        case 'updatelp':
             if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
                 $tenloai = $_POST['tenloai'];
                 $id = $_POST['id'];
-                update_loaihang($id, $tenloai);
+                update_loaiphong($id, $tenloai);
                 $thongbao = "Cập nhật thành công!";
             }
-            $listdm = loadall_loaihang();
-            include "loaihang/list.php";
+            $listdm = loadall_loaiphong();
+            include "loaiphong/list.php";
             break;
-            // hang hoa
-        case 'addsp':
+            // phong
+        case 'addp':
             //kiem tra xem ng dung co click vao nut add k
             if (isset($_POST['themmoi']) && ($_POST['themmoi'])) {
-                $tensp = $_POST['tensp'];
-                $price = $_POST['price'];
+                $maphong = $_POST['maphong'];
+                $tenphong = $_POST['tenphong'];
+                $gia = $_POST['gia'];
+                $giasale = $_POST['giasale'];
                 $mota = $_POST['mota'];
                 $iddm = $_POST['iddm'];
-                $filename = $_FILES['img']['name'];
-                $target_dir = "../upload/";
-                $target_file = $target_dir . basename($_FILES["img"]["name"]);
-                if (move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)) {
-                    // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-                } else {
-                    // echo "Sorry, there was an error uploading your file.";
-                }
-                insert_hanghoa($tensp, $price, $filename, $mota, $iddm);
-                $thongbao = "Thêm mới thành công!";
-            }
-            $listdm = loadall_loaihang();
-            include "hanghoa/add.php";
-            break;
-        case 'listsp':
-            if (isset($_POST['gui']) && ($_POST['gui'])) {
-                $kyw = $_POST['kyw'];
-                $iddm = $_POST['iddm'];
-            } else {
-                $kyw = '';
-                $iddm = 0;
-            }
-            $listdm = loadall_loaihang();
-            $listsp = loadall_hanghoa($kyw, $iddm);
-            include "hanghoa/list.php";
-            break;
-        case 'xoasp':
-            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                delete_hanghoa($_GET['id']);
-            }
-            $listsp = loadall_hanghoa("", 0);
-            include "hanghoa/list.php";
-            break;
-        case 'suasp':
-            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
-                $sanpham = loadone_hanghoa($_GET['id']);
-            }
-            $listdm = loadall_loaihang();
-            include "hanghoa/update.php";
-            break;
-        case 'updatesp':
-            if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
-                $id = $_POST['id'];
-                $tensp = $_POST['tensp'];
-                $price = $_POST['price'];
-                $mota = $_POST['mota'];
-                $iddm = $_POST['iddm'];
+                $tinhtrang = $_POST['tinhtrang'];
+                $sokhach = $_POST['sokhach'];
                 $img = $_FILES['img']['name'];
                 $target_dir = "../upload/";
                 $target_file = $target_dir . basename($_FILES["img"]["name"]);
@@ -109,13 +66,60 @@ if (isset($_GET['act'])) {
                 } else {
                     // echo "Sorry, there was an error uploading your file.";
                 }
-                update_hanghoa($id, $tensp, $price, $img, $mota, $iddm);
+                insert_phong($maphong,$tenphong,$gia,$giasale,$sokhach,$img,$mota,$tinhtrang,$idlp);
+                $thongbao = "Thêm mới thành công!";
+            }
+            $listlp = loadall_loaiphong();
+            include "phong/add.php";
+            break;
+        case 'listp':
+            if (isset($_POST['gui']) && ($_POST['gui'])) {
+                $kyw = $_POST['kyw'];
+                $idlp = $_POST['idlp'];
+            } else {
+                $kyw = '';
+                $idlp = 0;
+            }
+            $listlp = loadall_loaiphong();
+            $listsp = loadall_phong($kyw, $idlp);
+            include "phong/list.php";
+            break;
+        case 'xoap':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                delete_phong($_GET['id']);
+            }
+            $listp = loadall_phong("", 0);
+            include "phong/list.php";
+            break;
+        case 'suap':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $phong = loadone_phong($_GET['id']);
+            }
+            $listlp = loadall_loaiphong();
+            include "phong/update.php";
+            break;
+        case 'updatep':
+            if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+                $id = $_POST['id'];
+                $tensp = $_POST['tensp'];
+                $price = $_POST['price'];
+                $mota = $_POST['mota'];
+                $idlp = $_POST['idlp'];
+                $img = $_FILES['img']['name'];
+                $target_dir = "../upload/";
+                $target_file = $target_dir . basename($_FILES["img"]["name"]);
+                if (move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)) {
+                    // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                } else {
+                    // echo "Sorry, there was an error uploading your file.";
+                }
+                update_phong($maphong,$tenphong,$gia,$giasale,$sokhach,$img,$mota,$tinhtrang,$idlp);
                 $thongbao = "Cập nhật thành công!";
             }
 
-            $listdm = loadall_loaihang();
-            $listsp = loadall_hanghoa($kyw = "", $iddm = 0);
-            include "hanghoa/list.php";
+            $listlp = loadall_loaiphong();
+            $listp = loadall_phong($kyw = "", $idlp = 0);
+            include "phong/list.php";
             break;
         case 'dskh':
             $listtaikhoan = loadall_taikhoan();
@@ -187,8 +191,8 @@ if (isset($_GET['act'])) {
             include "../view/cart/list.php";
             break;
         case 'xoadh':
-            if (isset($_GET['iddonhang']) && ($_GET['iddonhang'] > 0)) {
-                delete_donhang($_GET['iddonhang']);
+            if (isset($_GET['iddonphong']) && ($_GET['iddonphong'] > 0)) {
+                delete_donhang($_GET['iddonphong']);
             }
             $listdh = loadall_donhang("", 0);
             include "../view/cart/list.php";
@@ -201,7 +205,7 @@ if (isset($_GET['act'])) {
             $listthongke = loadall_thongke();
             include "thongke/bieudo.php";
             break;
-        case 'chitietdonhang':
+        case 'chitietdonphong':
             // if(isset($_POST['xemct'])&&($_POST['xemct'])){
             //     $id=$_POST['id'];
             //     $product_name=$_POST['product_name'];
@@ -213,7 +217,7 @@ if (isset($_GET['act'])) {
             //     array_push($_SESSION['mycart'],$spadd);
                 
             // }
-            include "../view/cart/chitietdonhang.php";
+            include "../view/cart/chitietdonphong.php";
             break;
         default:
             include "home.php";

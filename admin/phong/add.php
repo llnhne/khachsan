@@ -3,7 +3,7 @@
         <h1 style="padding: 15px 0;">ADMIN </h1>
     </div>
     <div class="row mb10 formtittle" style="width:1050px;">
-        <h3>THÊM MỚI SẢN PHẨM</h3>
+        <h3>THÊM MỚI PHÒNG</h3>
     </div>
     <?php
     if (isset($thongbao) && ($thongbao != "")) echo $thongbao;
@@ -13,32 +13,32 @@
             <div class="row">
                 <div class="row mb10 content1">
                     <div class="row mb10">
-                        <label for="">MÃ HÀNG HÓA</label><br>
-                        <input type="text" placeholder="auto number" style="width:120%;" disabled>
+                        <label for="">MÃ PHÒNG</label><br>
+                        <input type="maphong" placeholder="auto number" style="width:120%;" disabled>
                     </div>
                     <div class="row mb10">
-                        <label for="">TÊN HÀNG HÓA</label><br>
-                        <input type="text" name="tensp" style="width:120%;">
+                        <label for="">TÊN PHÒNG</label><br>
+                        <input type="tenphong" name="tensp" style="width:120%;">
                     </div>
                 </div>
                 <div class="row mb10 content2">
                     <div class="row mb10">
                         <label for="">ĐƠN GIÁ</label><br>
-                        <input type="text" name="price" style="width:120%;">
+                        <input type="gia" name="price" style="width:120%;">
                     </div>
                     <div class="row mb10">
-                        <label for="">SỐ LƯỢT XEM</label><br>
-                        <input type="text" placeholder="auto" name="luotxem" style="width:120%;" disabled>
+                        <label for="">GIÁ SALE</label><br>
+                        <input type="giasale" placeholder="auto" name="luotxem" style="width:120%;" disabled>
                     </div>
                 </div>
                 <div class="row mb10 content3">
                     <div class="row mb10">
-                        <label for="">LOẠI HÀNG</label><br>
+                        <label for="">LOẠI PHÒNG</label><br>
                         <select name="iddm" id="" style="border:1px solid #FFCACA;">
                             <?php
-                            foreach ($listdm as $danhmuc) {
-                                extract($danhmuc);
-                                echo '<option value="' . $id . '">' . $name . '</option>';
+                            foreach ($listlp as $loaiphong) {
+                                extract($loaiphong);
+                                echo '<option value="' . $id_loaiphong . '">' . $name_loaiphong . '</option>';
                             }
                             ?>
                         </select>
@@ -47,7 +47,11 @@
                         <label for="">HÌNH ẢNH</label><br>
                         <input type="file" name="img">
                     </div>
-
+                    <div class="row mb10">
+                        <label for="">TÌNH TRẠNG</label><br>
+                        <input type="text" name="tinhtrang" style="width:120%;" disabled>
+                    </div>
+                        <input type="hidden" placeholder="auto" name="idloaiphong" style="width:120%;" disabled>
                 </div>
             </div>
             <div class="row mb10">

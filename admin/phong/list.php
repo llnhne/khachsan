@@ -3,18 +3,18 @@
         <h1 style="padding: 15px 0;">ADMIN </h1>
     </div>
     <div class="row formtittle" style="width:1050px;">
-        <h3>QUẢN LÝ HÀNG HÓA</h3>
+        <h3>QUẢN LÝ PHÒNG</h3>
     </div>
 
     <div class="row formcontent">
-        <form action="index.php?act=listsp" method="post">
-            <input type="text" name="kyw" placeholder="Tìm kiếm sản phẩm" style="width:50%;">
-            <select name="iddm" style="padding:10px;width:30%;margin-bottom:20px;border-radius:5px;border: 1px solid #FFCACA;color:#372948;">
+        <form action="index.php?act=listp" method="post">
+            <input type="text" name="kyw" placeholder="Tìm kiếm phòng" style="width:50%;">
+            <select name="idlp" style="padding:10px;width:30%;margin-bottom:20px;border-radius:5px;border: 1px solid #FFCACA;color:#372948;">
                 <option value="0" selected>Tất cả</option>
                 <?php
-                foreach ($listdm as $danhmuc) {
-                    extract($danhmuc);
-                    echo '<option value="' . $id . '">' . $name . '</option>';
+                foreach ($listlp as $loaiphong) {
+                    extract($loaiphong);
+                    echo '<option value="' . $id_loaiphong . '">' . $name_loaiphong . '</option>';
                 }
                 ?>
             </select>
@@ -32,10 +32,10 @@
                         <th></th>
                     </tr>
                     <?php
-                    foreach ($listsp as $sanpham) {
-                        extract($sanpham);
-                        $suasp = "index.php?act=suasp&id=" . $id;
-                        $xoasp = "index.php?act=xoasp&id=" . $id;
+                    foreach ($listp as $phong) {
+                        extract($phong);
+                        $suasp = "index.php?act=suap&id=" . $id;
+                        $xoasp = "index.php?act=xoap&id=" . $id;
                         $img = "../upload/" . $img;
                         if (is_file($img)) {
                             $img = "<img src='" . $img . "' height='80px'>";
@@ -44,13 +44,16 @@
                         }
                         echo '<tr>
                                         <td><input type="checkbox" name="name"></td>
-                                        <td>' . $iddm . '</td>
-                                        <td>' . $product_name . '</td>
-                                        <td>' . $img . '</td>
+                                        <td>' . $id_phong . '</td>
+                                        <td>' . $name_phong . '</td>
                                         <td>' . $price . '</td>
-                                        <td>' . $luotxem . '</td>
+                                        <td>' . $price_sale . '</td>
+                                        <td>' . $sokhach . '</td>
+                                        <td>' . $img . '</td>
                                         <td>' . $mota . '</td>
-                                        <td><a href="' . $suasp . '"><input type="button" value="Sửa"></a>  <a onclick="return DELETE()" href="' . $xoasp . '"><input type="button" value="Xóa"></a></td>
+                                        <td>' . $tinhtrang . '</td>
+                                        <td>' . $id_loaiphong . '</td>
+                                        <td><a href="' . $suap . '"><input type="button" value="Sửa"></a>  <a onclick="return DELETE()" href="' . $xoap . '"><input type="button" value="Xóa"></a></td>
                                     </tr>';
                     }
                     ?>
@@ -60,7 +63,7 @@
                 <input type="button" id="btn1" value="Chọn tất cả">
                 <input type="button" id="btn2" value="Bỏ chọn tất cả" style="margin-left:10px;">
                 <input type="button" value="Xóa các mục đã chọn" style="margin-left:10px;">
-                <a href="index.php?act=addsp"><input type="button" value="Nhập thêm" style="margin-left:10px;"></a>
+                <a href="index.php?act=addp"><input type="button" value="Nhập thêm" style="margin-left:10px;"></a>
             </div>
         </form>
         <script>
