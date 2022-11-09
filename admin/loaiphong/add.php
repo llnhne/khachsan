@@ -3,7 +3,7 @@
         <h1 style="padding: 15px 0;">ADMIN</h1>
     </div>
     <div class="row mb10 formtittle" style="width:1050px;">
-        <h3>THÊM MỚI LOẠI HÀNG</h3>
+        <h3>THÊM MỚI LOẠI PHÒNG</h3>
     </div>
     <?php
     if (isset($thongbao) && ($thongbao != "")) echo $thongbao;
