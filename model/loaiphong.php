@@ -1,26 +1,26 @@
 <?php
-    function insert_loaihang($tenloai){
-        $sql="INSERT INTO danhmuc(name) values('$tenloai')";
+    function insert_loaiphong($tenloai){
+        $sql="INSERT INTO loaiphong(name_loaiphong) values('$tenloai')";
         pdo_execute($sql);
     }
-    function delete_loaihang($id){
-        $query="update sanpham set iddm = 40 where iddm=".$id;
+    function delete_loaiphong($id){
+        $query="update phong set id_loaiphong = 40 where id_loaiphong=".$id;
         pdo_execute($query);
-        $sql="delete from danhmuc where id=".$id;
+        $sql="delete from loaiphong where id_loaiphong=".$id;
         pdo_execute($sql);
     }
-    function loadall_loaihang(){
-        $sql="SELECT * FROM danhmuc order by id desc";
+    function loadall_loaiphong(){
+        $sql="SELECT * FROM loaiphong order by id_loaiphong desc";
         $listdm=pdo_query($sql);
         return $listdm;
     }
-    function loadone_loaihang($id){
-        $sql="select * from danhmuc where id=".$id;
+    function loadone_loaiphong($id){
+        $sql="select * from loaiphong where id_loaiphong =".$id;
         $dm=pdo_query_one($sql);
         return $dm;
     }
-    function update_loaihang($id,$tenloai){
-        $sql="update danhmuc set name='".$tenloai."' where id=".$id;
+    function update_loaiphong($id,$tenloai){
+        $sql="update loaiphong set name_loaiphong='".$tenloai."' where id_loaiphong =".$id;
         pdo_execute($sql);
     }
 ?>

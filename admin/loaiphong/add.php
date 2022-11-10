@@ -21,7 +21,7 @@
             <div class="row mb10">
                 <input type="submit" name="themmoi" value="THÊM MỚI">
                 <input type="reset" name="nhaplai" value="NHẬP LẠI">
-                <a href="index.php?act=listdm"><input type="button" value="DANH SÁCH"></a>
+                <a href="index.php?act=listlp"><input type="button" value="DANH SÁCH"></a>
             </div>
         </form>
     </div>

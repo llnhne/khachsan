@@ -4,7 +4,6 @@ include "../model/loaiphong.php";
 include "../model/phong.php";
 include "../model/taikhoan.php";
 include "../model/binhluan.php";
-include "../model/giophong.php";
 include "header.php";
 // controller
 if (isset($_GET['act'])) {
@@ -40,10 +39,10 @@ if (isset($_GET['act'])) {
             if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
                 $tenloai = $_POST['tenloai'];
                 $id = $_POST['id'];
-                update_loaiphong($id, $tenloai);
+                update_loaiphong($id,$tenloai);
                 $thongbao = "Cập nhật thành công!";
             }
-            $listdm = loadall_loaiphong();
+            $listlp = loadall_loaiphong();
             include "loaiphong/list.php";
             break;
             // phong

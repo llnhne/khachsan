@@ -16,14 +16,14 @@
                         <th></th>
                     </tr>
                     <?php
-                    foreach ($listdm as $danhmuc) {
+                    foreach ($listlp as $danhmuc) {
                         extract($danhmuc);
-                        $suadm = "index.php?act=suadm&id=" . $id;
-                        $xoadm = "index.php?act=xoadm&id=" . $id;
+                        $suadm = "index.php?act=sualp&id=" . $id_loaiphong;
+                        $xoadm = "index.php?act=xoalp&id=" . $id_loaiphong;
                         echo '<tr>
                                         <td><input type="checkbox" name="name"></td>
-                                        <td>' . $id . '</td>
-                                        <td>' . $name . '</td>
+                                        <td>' . $id_loaiphong . '</td>
+                                        <td>' . $name_loaiphong . '</td>
                                         <td><a href="' . $suadm . '"><input type="button" value="Sửa"></a>  <a onclick="return DELETE()" href="' . $xoadm . '"><input type="button" value="Xóa" name="delete"></a></td>
                                     </tr>';
                     }
@@ -34,7 +34,7 @@
                 <input type="button" id="btn1" value="Chọn tất cả">
                 <input type="button" id="btn2" value="Bỏ chọn tất cả">
                 <input type="button" value="Xóa các mục đã chọn">
-                <a href="index.php?act=adddm"><input type="button" value="Nhập thêm"></a>
+                <a href="index.php?act=addlp"><input type="button" value="Nhập thêm"></a>
             </div>
         </form>
         <script>
