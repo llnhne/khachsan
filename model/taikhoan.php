@@ -29,8 +29,12 @@
             WHERE id_user=$id";
         pdo_execute($sql);
     }
-    function loadall_taikhoan(){
-        $sql="select * from taikhoan order by id_user desc";
+    function loadall_taikhoan($kyw){
+        $sql="SELECT * FROM taikhoan where 1";
+        if($kyw!=""){
+            $sql.=" and username like '%".$kyw."%'";
+        }
+        $sql.=" order by id_user desc";
         $listtaikhoan=pdo_query($sql);
         return $listtaikhoan;
     }

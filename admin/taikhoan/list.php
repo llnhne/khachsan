@@ -6,7 +6,9 @@
         <h3>DANH SÁCH TÀI KHOẢN</h3>
     </div>
     <div class="row formcontent" style="width:1050px;">
-        <form action="" method="post">
+        <form action="index.php?act=dskh" method="post">
+            <input type="text" name="kyw" placeholder="Tìm kiếm tài khoản" style="width:50%;margin-bottom:20px">
+            <input type="submit" name="gui" value="Tìm Kiếm" style="padding:10px;">
             <div class="row mb10 formdshanghoa">
                 <table>
                     <tr>

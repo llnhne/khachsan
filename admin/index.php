@@ -124,7 +124,12 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 1) {
                 include "phong/list.php";
                 break;
             case 'dskh':
-                $listtaikhoan = loadall_taikhoan();
+                if (isset($_POST['gui']) && ($_POST['gui'])) {
+                    $kyw = $_POST['kyw'];
+                }else {
+                    $kyw = '';
+                }
+                $listtaikhoan = loadall_taikhoan($kyw);
                 include "taikhoan/list.php";
                 break;
             case 'xoatk':
