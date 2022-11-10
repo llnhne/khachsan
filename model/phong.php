@@ -1,6 +1,6 @@
 <?php
-    function insert_phong($tenphong,$gia,$giasale,$img,$mota,$idlp){
-        $sql="INSERT INTO phong(name_phong,price,price_sale,img,mota,id_loaiphong) values('$tenphong','$gia','$giasale','$img','$mota','$idlp')";
+    function insert_phong($tenphong,$gia,$giasale,$sokhach,$img,$mota,$idlp){
+        $sql="INSERT INTO phong(name_phong,price,price_sale,sokhach,img,mota,id_loaiphong) values('$tenphong','$gia','$giasale','$sokhach','$img','$mota','$idlp')";
         pdo_execute($sql);
     }
     function delete_phong($id){
@@ -45,14 +45,14 @@
         }
         
     }
-    function update_phong($id,$tenphong,$gia,$giasale,$img,$mota,$idlp){
+    function update_phong($id,$tenphong,$gia,$giasale,$sokhach,$img,$mota,$idlp){
         if($img!=""){
             $sql="UPDATE phong
-            SET id_phong = '$id', name_phong = '$tenphong', price = $gia, price_sale = '$giasale', img = '$img', mota = '$mota' , id_loaiphong = $idlp
+            SET id_phong = '$id', name_phong = '$tenphong', price = $gia, price_sale = '$giasale', sokhach = '$sokhach', img = '$img', mota = '$mota' , id_loaiphong = $idlp
             WHERE id_phong = $id ";
         }else{
             $sql="UPDATE phong
-            SET id_phong = '$id', name_phong = '$tenphong', price = $gia, price_sale = '$giasale', mota = '$mota' , id_loaiphong = $idlp
+            SET id_phong = '$id', name_phong = '$tenphong', price = $gia, price_sale = '$giasale', sokhach = '$sokhach', mota = '$mota' , id_loaiphong = $idlp
             WHERE id_phong = $id ";
         }
         pdo_execute($sql);

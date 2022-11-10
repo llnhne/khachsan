@@ -6,9 +6,11 @@
         <h3>THÊM MỚI PHÒNG</h3>
     </div>
     <div class="row formcontent" style="width:1650px;">
-        <?php
+    <div class="thongbao" style="color: red;">
+    <?php
         if (isset($thongbao) && ($thongbao != "")) echo $thongbao;
-        ?>
+    ?>
+    </div>
         <form action="index.php?act=addp" method="post" enctype="multipart/form-data">
             <div class="row" style="margin-top:15px;">
                 <div class="row mb10 content1">
@@ -17,14 +19,33 @@
                         <input type="text" name="maphong" placeholder="auto number" style="width:120%;" disabled>
                     </div>
                     <div class="row mb10">
-                        <label for="">TÊN PHÒNG</label><br>
+                        <label for="" style="display:flex;">TÊN PHÒNG <p style="color:red;"> *</p><br></label>
                         <input type="text" name="tenphong" style="width:120%;">
+                        <div class="thongbao" style="color: red;">
+                        <?php
+                            if (isset($errname) && ($errname != "")) echo $errname;
+                        ?>
+                        </div>
+                    </div>
+                    <div class="row mb10">
+                        <label for="" style="display:flex;">SỐ KHÁCH TỐI ĐA <p style="color:red;">*</p><br></label>
+                        <input type="text" name="sokhach" style="width:120%;">
+                        <div class="thongbao" style="color: red;">
+                        <?php
+                            if (isset($errsokhach) && ($errsokhach != "")) echo $errsokhach;
+                        ?>
+                        </div>
                     </div>
                 </div>
                 <div class="row mb10 content2">
                     <div class="row mb10">
-                        <label for="">ĐƠN GIÁ</label><br>
+                        <label for="" style="display:flex;">ĐƠN GIÁ <p style="color:red;">*</p><br></label>
                         <input type="text" name="gia" style="width:120%;">
+                        <div class="thongbao" style="color: red;">
+                        <?php
+                            if (isset($errgia) && ($errgia != "")) echo $errgia;
+                        ?>
+                        </div>
                     </div>
                     <div class="row mb10">
                         <label for="">GIÁ SALE</label><br>

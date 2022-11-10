@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 09, 2022 lúc 01:19 PM
+-- Thời gian đã tạo: Th10 10, 2022 lúc 07:16 PM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 8.1.6
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `khachsan_test`
+-- Cơ sở dữ liệu: `duan1`
 --
 
 -- --------------------------------------------------------
@@ -92,10 +92,11 @@ CREATE TABLE `loaiphong` (
 --
 
 INSERT INTO `loaiphong` (`id_loaiphong`, `name_loaiphong`) VALUES
-(1, 'luxury'),
+(1, 'Chưa phân loại'),
 (2, 'luxury'),
 (3, 'basic'),
-(4, 'suit');
+(4, 'suit'),
+(7, 'double');
 
 -- --------------------------------------------------------
 
@@ -115,6 +116,17 @@ CREATE TABLE `phong` (
   `id_loaiphong` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Đang đổ dữ liệu cho bảng `phong`
+--
+
+INSERT INTO `phong` (`id_phong`, `name_phong`, `price`, `price_sale`, `sokhach`, `img`, `mota`, `tinhtrang`, `id_loaiphong`) VALUES
+(1, 'luxuryA12', 500000.00, 0.00, 0, '132098157_159127059327577_895541964277773996_n.jpg', 'fdfdf', '', 2),
+(2, 'luxuryA12', 500000.00, 0.00, 0, '132098157_159127059327577_895541964277773996_n.jpg', 'fdfdf', '', 2),
+(4, 'luxuryA13', 500000.00, 0.00, 0, 'cafc12ef6f08a556fc19.jpg', 'fdfdf', '', 7),
+(49, 'luxuryA13', 510000.00, 50.00, 3, 'cafc12ef6f08a556fc19.jpg', 'dsds', '', 7),
+(50, 'luxuryA14', 510000.00, 50.00, 3, 'cafc12ef6f08a556fc19.jpg', 'hjhu', '', 4);
+
 -- --------------------------------------------------------
 
 --
@@ -130,6 +142,14 @@ CREATE TABLE `taikhoan` (
   `address` varchar(255) NOT NULL,
   `role` tinyint(2) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `taikhoan`
+--
+
+INSERT INTO `taikhoan` (`id_user`, `username`, `password`, `email`, `tel`, `address`, `role`) VALUES
+(1, 'admin', '12345', '', 0, '', 1),
+(4, 'lananh261', '123456', '', 0, '', 1);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -215,19 +235,19 @@ ALTER TABLE `hotro`
 -- AUTO_INCREMENT cho bảng `loaiphong`
 --
 ALTER TABLE `loaiphong`
-  MODIFY `id_loaiphong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_loaiphong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `phong`
 --
 ALTER TABLE `phong`
-  MODIFY `id_phong` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_phong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT cho bảng `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
