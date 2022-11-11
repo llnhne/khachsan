@@ -23,13 +23,13 @@
                     <?php
                     foreach ($listtaikhoan as $taikhoan) {
                         extract($taikhoan);
-                        $suatk = "index.php?act=suatk&id=" . $id;
-                        $xoatk = "index.php?act=xoatk&id=" . $id;
+                        $suatk = "index.php?act=suatk&id=" . $id_loaiphong;
+                        $xoatk = "index.php?act=xoatk&id=" . $id_loaiphong;
 
                         echo '<tr>
                                         <td><input type="checkbox" name="name"></td>
-                                        <td>' . $id . '</td>
-                                        <td>' . $user . '</td>
+                                        <td>' . $id_loaiphong . '</td>
+                                        <td>' . $username . '</td>
                                         <td>' . $password . '</td>
                                         <td>' . $email . '</td>
                                         <td>' . $address . '</td>

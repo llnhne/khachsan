@@ -10,10 +10,25 @@
         pdo_execute($sql);
     }
     function loadall_loaiphong(){
-        $sql="SELECT * FROM loaiphong order by id_loaiphong desc";
-        $listdm=pdo_query($sql);
-        return $listdm;
+        
+        if(isset($_POST['kyw']) && $_POST['kyw'] != ""){
+            $search = $_POST['kyw'];
+            $query = "select * from loaiphong where name_loaiphong like '%$search%'";
+            $listlp=pdo_query($query);
+            return $listlp;
+
+            
+        }
+       
+        if(empty($listlp)){
+            $query="SELECT * FROM loaiphong order by id_loaiphong desc";
+            $listlp=pdo_query($query);
+            return $listlp;
+
+        }
+        
     }
+   
     function loadone_loaiphong($id){
         $sql="select * from loaiphong where id_loaiphong =".$id;
         $dm=pdo_query_one($sql);
@@ -23,4 +38,5 @@
         $sql="update loaiphong set name_loaiphong='".$tenloai."' where id_loaiphong =".$id;
         pdo_execute($sql);
     }
+    
 ?>

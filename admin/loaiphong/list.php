@@ -3,28 +3,30 @@
         <h1 style="padding: 15px 0;">ADMIN </h1>
     </div>
     <div class="row formtittle" style="width:1050px;">
-        <h3>DANH SÁCH LOẠI HÀNG </h3>
+        <h3>DANH SÁCH LOẠI PHÒNG </h3>
     </div>
     <div class="row formcontent" style="width:1500px;">
-        <form action="index.php?act=listdm" method="post">
+        <form action="index.php?act=listlp" method="post">
+            <input type="text" name="kyw" placeholder="Tìm kiếm loại phòng" style="width:39%; margin-bottom:20px">
+            
             <div class="row mb10 formdsloaihang">
                 <table>
                     <tr>
                         <th></th>
-                        <th>MÃ LOẠI</th>
-                        <th>TÊN LOẠI</th>
+                        <th>MÃ LOẠI PHÒNG</th>
+                        <th>TÊN LOẠI PHÒNG</th>
                         <th></th>
                     </tr>
                     <?php
-                    foreach ($listlp as $danhmuc) {
-                        extract($danhmuc);
-                        $suadm = "index.php?act=sualp&id=" . $id_loaiphong;
-                        $xoadm = "index.php?act=xoalp&id=" . $id_loaiphong;
+                    foreach ($listlp as $loaiphong) {
+                        extract($loaiphong);
+                        $sualp = "index.php?act=sualp&id=" . $id_loaiphong;
+                        $xoalp = "index.php?act=xoalp&id=" . $id_loaiphong;
                         echo '<tr>
                                         <td><input type="checkbox" name="name"></td>
                                         <td>' . $id_loaiphong . '</td>
                                         <td>' . $name_loaiphong . '</td>
-                                        <td><a href="' . $suadm . '"><input type="button" value="Sửa"></a>  <a onclick="return DELETE()" href="' . $xoadm . '"><input type="button" value="Xóa" name="delete"></a></td>
+                                        <td><a href="' . $sualp . '"><input type="button" value="Sửa"></a>  <a onclick="return DELETE()" href="' . $xoalp . '"><input type="button" value="Xóa" name="delete"></a></td>
                                     </tr>';
                     }
                     ?>

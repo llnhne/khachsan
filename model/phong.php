@@ -1,8 +1,8 @@
 <?php
-    function insert_phong($maphong,$tenphong,$gia,$giasale,$sokhach,$img,$mota,$tinhtrang,$idlp){
-        $sql="INSERT INTO phong(id_phong,name_phong,price,price_sale,$sokhach,img,mota,id_loaiphong) values('$maphong','$tenphong','$gia','$giasale','$sokhach','$img','$mota','$tinhtrang','$idlp')";
-        pdo_execute($sql);
-    }
+    // function insert_phong($maphong,$tenphong,$gia,$giasale,$sokhach,$img,$mota,$tinhtrang,$idlp){
+    //     $sql="INSERT INTO phong(id_phong,name_phong,price,price_sale,$sokhach,img,mota,id_loaiphong) values('$maphong','$tenphong','$gia','$giasale','$sokhach','$img','$mota','$tinhtrang','$idlp')";
+    //     pdo_execute($sql);
+    // }
     function delete_phong($id){
         $sql="delete from phong where id_phong=".$id;
         pdo_execute($sql);
@@ -45,16 +45,16 @@
         }
         
     }
-    function update_phong($maphong,$tenphong,$gia,$giasale,$sokhach,$img,$mota,$tinhtrang,$idlp){
-        if($img!=""){
-            $sql="UPDATE phong
-            SET id_phong = '$maphong', name_phong = '$tenphong', price = $gia, price_sale = '$giasale', sokhach = '$sokhach', img = '$img', mota = '$mota' , tinhtrang = '$tinhtrang', id_loaiphong = $idlp
-            WHERE id_phong = $id ";
-        }else{
-            $sql="UPDATE phong
-            SET id_phong = '$maphong', name_phong = '$tenphong', price = $gia, price_sale = '$giasale', sokhach = '$sokhach', mota = '$mota' , tinhtrang = '$tinhtrang', id_loaiphong = $idlp
-            WHERE id_phong = $id ";
-        }
-        pdo_execute($sql);
-    }
+    // function update_phong($maphong,$tenphong,$gia,$giasale,$sokhach,$img,$mota,$tinhtrang,$idlp){
+    //     if($img!=""){
+    //         $sql="UPDATE phong
+    //         SET id_phong = '$maphong', name_phong = '$tenphong', price = $gia, price_sale = '$giasale', sokhach = '$sokhach', img = '$img', mota = '$mota' , tinhtrang = '$tinhtrang', id_loaiphong = $idlp
+    //         WHERE id_phong = $id ";
+    //     }else{
+    //         $sql="UPDATE phong
+    //         SET id_phong = '$maphong', name_phong = '$tenphong', price = $gia, price_sale = '$giasale', sokhach = '$sokhach', mota = '$mota' , tinhtrang = '$tinhtrang', id_loaiphong = $idlp
+    //         WHERE id_phong = $id ";
+    //     }
+    //     pdo_execute($sql);
+    // }
 ?>
