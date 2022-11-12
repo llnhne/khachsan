@@ -256,6 +256,9 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 1) {
             default:
                 include "home.php";
                 break;
+
+
+                
         }
     }
     include "home.php";
