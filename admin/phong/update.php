@@ -1,6 +1,7 @@
 <?php
 if (is_array($phong)) {
     extract($phong);
+    $iddm=$id_loaiphong;
     // $prd_id = $id_phong;
     // var_dump($prd_id);die;
     // var_dump($phong);
@@ -58,7 +59,7 @@ if (is_file($img)) {
                             <?php
                             foreach ($listlp as $loaiphong) {
                                 extract($loaiphong);
-                                if ($id == $id_loaiphong) $s = "selected";
+                                if ($iddm == $id_loaiphong) $s = "selected";
                                 else $s = "";
                                 echo '<option value="' . $id_loaiphong . '" ' . $s . '>' . $name_loaiphong . '</option>';
                             }
