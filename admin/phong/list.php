@@ -28,6 +28,7 @@
                         <th>HÌNH ẢNH</th>
                         <th>GIÁ</th>
                         <th>GIÁ SALE</th>
+                        <th>SỐ KHÁCH</th>
                         <th>MÔ TẢ</th>
                         <th></th>
                     </tr>
@@ -49,6 +50,7 @@
                                         <td>' . $img . '</td>
                                         <td>' . $price . '</td>
                                         <td>' . $price_sale . '</td>
+                                        <td>' . $sokhach . '</td>
                                         <td>' . $mota . '</td>
                                         <td><a href="' . $suap . '"><input type="button" value="Sửa"></a>  <a onclick="return DELETE()" href="' . $xoap . '"><input type="button" value="Xóa"></a></td>
                                     </tr>';

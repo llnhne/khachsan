@@ -16,7 +16,8 @@
             </div>
             <div class="row mb10">
                 <label for="">Tên loại phòng</label><br>
-                <input type="text" placeholder="" name="tenloaiphong">
+                <input type="text" name="tenloaiphong" id="tenloaiphong" value="<?php echo isset($data['tenloaiphong']) ? $data['tenloaiphong'] : ''; ?>"/>
+                <?php echo isset($error['tenloaiphong']) ? $error['tenloaiphong'] : ''; ?>
             </div>
             <div class="row mb10">
                 <input type="submit" name="themmoi" value="THÊM MỚI">
