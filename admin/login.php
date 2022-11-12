@@ -6,6 +6,7 @@
 
     if((isset($_POST['dangnhap']))&&($_POST['dangnhap'])){
         $username=$_POST['username'];
+
         $password=$_POST['password'];
         $role=checkuser($username,$password);
         $_SESSION['role']=$role;
