@@ -16,27 +16,21 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 1) {
         switch ($act) {
             case 'addlp':
                 $error = array();
-                    $data = array();
-                    if (isset($_POST['themmoi']) && ($_POST['themmoi']))
-                    {  
-                        
-                        // Lấy dữ liệu
-                        $data['tenloaiphong'] = isset($_POST['tenloaiphong']) ? $_POST['tenloaiphong'] : '';
-                        
-                    
-                    
-                        if (empty($data['tenloaiphong'])){
-                            $error['tenloaiphong'] = 'Bạn chưa nhập tên';
-                        }
-                        if(!$error){
-                            $tenloaiphong = $_POST['tenloaiphong'];
-                            insert_loaiphong($tenloaiphong);
-                            $thongbao = "Thêm mới thành công!";
-                        }
-
+                $data = array();
+                if (isset($_POST['themmoi']) && ($_POST['themmoi'])) {
+                    // Lấy dữ liệu
+                    $data['tenloaiphong'] = isset($_POST['tenloaiphong']) ? $_POST['tenloaiphong'] : '';
+                    if (empty($data['tenloaiphong'])) {
+                        $error['tenloaiphong'] = 'Bạn chưa nhập tên';
                     }
-                    include "loaiphong/add.php";
-                    break;
+                    if (!$error) {
+                        $tenloaiphong = $_POST['tenloaiphong'];
+                        insert_loaiphong($tenloaiphong);
+                        $thongbao = "Thêm mới thành công!";
+                    }
+                }
+                include "loaiphong/add.php";
+                break;
             case 'listlp':
                 $listlp = loadall_loaiphong();
                 include "loaiphong/list.php";
@@ -82,18 +76,18 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 1) {
                     } else {
                         // echo "Sorry, there was an error uploading your file.";
                     }
-                    if (empty($tenphong)) {  
+                    if (empty($tenphong)) {
                         $errname = "Vui lòng điền tên phòng !";
                     }
-                    if (empty($sokhach)) {  
+                    if (empty($sokhach)) {
                         $errsokhach = "Vui lòng điền số khách !";
                     }
-                    if (empty($gia)) {  
+                    if (empty($gia)) {
                         $errgia = "Vui lòng không bỏ trống giá tiền !";
                     }
-                    if (empty($thongbao)) {  
+                    if (empty($thongbao)) {
                         $thongbao = "Vui lòng không bỏ trống * !";
-                    }else{
+                    } else {
                         insert_phong($tenphong, $gia, $giasale, $sokhach, $img, $mota, $idlp);
                         $thongbao = "Thêm mới thành công!";
                     }
