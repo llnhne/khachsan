@@ -8,10 +8,11 @@
         $sql="INSERT INTO taikhoan(user,email,password,tel,address) values('$user','$email','$password','$tel','$address')";
         pdo_execute($sql);
     }
-    function checkuser($user,$password){
-        $sql="select * from taikhoan where user='".$user."' and password='".$password."' ";
-        $tk=pdo_query_one($sql);
-        return $tk;
+    function checkuser($username,$password){
+        $sql="select * from taikhoan where username='".$username."' and password='".$password."' ";
+        $kq=pdo_query($sql);
+        if(count($kq)>0) return $kq[0]['role'];
+        else return 0;
     }
     function delete_taikhoan($id){
         $sql="delete from taikhoan where id=".$id;

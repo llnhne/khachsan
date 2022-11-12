@@ -23,19 +23,20 @@
                 <table>
                     <tr>
                         <th></th>
-                        <th>MÃ LOẠI</th>
-                        <th>TÊN SẢN PHẨM</th>
-                        <th>ẢNH</th>
-                        <th>ĐƠN GIÁ</th>
-                        <th>LƯỢT XEM</th>
+                        <th>MÃ PHÒNG</th>
+                        <th>TÊN PHÒNG</th>
+                        <th>HÌNH ẢNH</th>
+                        <th>GIÁ</th>
+                        <th>GIÁ SALE</th>
+                        <th>SỐ KHÁCH</th>
                         <th>MÔ TẢ</th>
                         <th></th>
                     </tr>
                     <?php
                     foreach ($listp as $phong) {
                         extract($phong);
-                        $suasp = "index.php?act=suap&id=" . $id;
-                        $xoasp = "index.php?act=xoap&id=" . $id;
+                        $suap = "index.php?act=suap&id=" . $id_phong;
+                        $xoap = "index.php?act=xoap&id=" . $id_phong;
                         $img = "../upload/" . $img;
                         if (is_file($img)) {
                             $img = "<img src='" . $img . "' height='80px'>";
@@ -46,13 +47,11 @@
                                         <td><input type="checkbox" name="name"></td>
                                         <td>' . $id_phong . '</td>
                                         <td>' . $name_phong . '</td>
+                                        <td>' . $img . '</td>
                                         <td>' . $price . '</td>
                                         <td>' . $price_sale . '</td>
                                         <td>' . $sokhach . '</td>
-                                        <td>' . $img . '</td>
                                         <td>' . $mota . '</td>
-                                        <td>' . $tinhtrang . '</td>
-                                        <td>' . $id_loaiphong . '</td>
                                         <td><a href="' . $suap . '"><input type="button" value="Sửa"></a>  <a onclick="return DELETE()" href="' . $xoap . '"><input type="button" value="Xóa"></a></td>
                                     </tr>';
                     }

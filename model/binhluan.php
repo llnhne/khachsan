@@ -8,6 +8,8 @@
         if($idpro>0) $sql.=" AND idpro='".$idpro."'";
         $sql.=" order by id desc";
         $listbl=pdo_query($sql);
+
+        
         return $listbl;
     }
     function delete_binhluan($id){
