@@ -252,6 +252,8 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 1) {
             case 'thoat':
                 if (isset($_SESSION['role'])) unset($_SESSION['role']);
                 header('Location: login.php');
+
+                
                 break;
             default:
                 include "home.php";
