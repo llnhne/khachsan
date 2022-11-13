@@ -12,6 +12,9 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 1) {
     include "header.php";
     // controller
     if (isset($_GET['act'])) {
+
+
+        
         $act = $_GET['act'];
         switch ($act) {
             case 'addlp':
